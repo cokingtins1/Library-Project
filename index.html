@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script scr="script.js" defer></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css" defer>
 
 </head>
+
 <body>
     <div class="header">
-        <h1>My Library</h1>
+        <h1>Library Project</h1>
     </div>
+    <div class="newBtn-container">
+        <button id="newBook">+ New Book</button>
+
+
+        </form>
+        <div id='output1'>nothing</div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="form" action="script.js">
+                <input type="text" id="title" placeholder="title">
+                <input type="text" id="author" placeholder="author">
+                <input type="text" id="pages" placeholder="pages">
+            </form>
+            <button id="submit">Submit</button>
+        </div>
+
+
 </body>
+
 </html>
