@@ -1,3 +1,6 @@
+
+let myLibrary = []
+
 const addBook = document.getElementById("newBook")
 const submit = document.getElementById("submit")
 
@@ -12,37 +15,61 @@ const titleInput = document.getElementById('title')
 const authorInput = document.getElementById('author')
 const pagesInput = document.getElementById('pages')
 
-
-let myLibrary = []
-let newBook
-
-class NewBook{
-    constructor(titleInput, authorInput, pagesInput){
-        this.title = titleInput
-        this.author = authorInput
-        this.pages = pagesInput
+class Book{
+    constructor(title, author, pages){
+        this.title = title
+        this.author = author
+        this.pages = pages
     }
-
-    appendLib(){
-        myLibrary = this.title.value + this.author.value + this.pages.value 
-
-    }
-
 }
-
-const book = new NewBook(titleInput, authorInput, pagesInput)
 
 addBook.addEventListener('click', () => {
     popUp.style.display = "block"
 })
 
-
-submit.addEventListener('click', () =>{
-    book.appendLib()
-    out1.innerHTML = myLibrary
+let newBook
+function addBookToLibrary(){
+    newBook = new Book(titleInput.value, authorInput.value, pagesInput.value)
+    // myLibrary.push(JSON.stringify(newBook))
+    myLibrary.push(newBook)
+    // out1.innerHTML = myLibrary[0].title
+    console.log(newBook.title)
     popUp.style.display = "none"
-})
 
+    for(let i =0; i<myLibrary.length; i++){
+        createBook(myLibrary[i]);
+    }
+
+    const libcontainer = document.getElementById('Library-container');
+    const bookDiv = document.createElement('div')
+    const titleDiv = document.createElement('div')
+
+    bookDiv.classList.add('Book')
+    libcontainer.append(bookDiv)
+    
+    titleDiv.classList.add('title')
+    titleDiv.innerText = myLibrary[0].title
+    bookDiv.append(titleDiv)
+
+
+}
+
+function createBook(item){
+    // const library = document.querySelector('#Library-container');
+    const libcontainer = document.getElementById('Library-container');
+    const library = document.createElement('div')
+    const bookDiv = document.createElement('div');
+
+    libcontainer.append(library)
+    // library.classList.add('Library-container')
+    // bookDiv.classList.add('book')
+    // bookDiv.setAttribute('id', myLibrary.indexOf(item))
+
+    
+
+}
+
+submit.addEventListener('click', addBookToLibrary)
 
 
 span.onclick = function() {

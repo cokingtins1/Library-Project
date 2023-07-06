@@ -1,15 +1,49 @@
 html {
-    display: flex;
-    justify-content: center ;
-    height: 100vh;
-    width: 100vw;
+    /* display: flex;
+    justify-content: center ; */
+    /* height: 100vh;
+    width: 100vw; */
     
 }
 
+body{
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(3, 10% 20% 70%);
+
+}
+
+.header{
+  display: flex;
+  grid-row: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .newBtn-container{
     display: flex;
+    flex-direction: column;
+    grid-row: 2;
     justify-content: center;
+    align-items: center;
     
+}
+
+.Library-container{
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.Library-container .Book{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
 }
 
 button {
